@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迷子になっちゃった…</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #000;
+            font-family: "Comic Sans MS", "Marker Felt", cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #b30000;
+            overflow: hidden;
+            animation: flicker 8s infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            5% { opacity: 0.2; }
+            6% { opacity: 1; }
+            7% { opacity: 0.2; }
+            8% { opacity: 1; }
+            9% { opacity: 0.2; }
+            10% { opacity: 1; }
+            89% { opacity: 1; }
+            90% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3;
+            filter: grayscale(0.8) contrast(1.1) brightness(0.6);
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: 
+                0 0 15px rgba(255, 0, 0, 0.3),
+                inset 0 0 10px rgba(100, 0, 0, 0.5);
+            transform: rotate(-2deg);
+            max-width: 600px;
+            margin: 2rem;
+            border: 3px solid #400;
+            animation: shake 10s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(-2deg); }
+            25% { transform: rotate(-1deg) translateX(5px); }
+            75% { transform: rotate(-3deg) translateX(-5px); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff0000;
+            text-shadow: 
+                2px 2px 0 #000,
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                0 0 15px #ff0000;
+            margin-bottom: 1.5rem;
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: rotate(2deg); }
+            48% { transform: rotate(2deg); }
+            49% { transform: translate(-2px, 2px) skew(10deg); }
+            50% { transform: translate(2px, -2px) skew(-10deg); }
+            51% { transform: rotate(2deg); }
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .teddy {
+            margin: 1rem;
+            animation: creepy 5s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        .teddy img.creepy-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: grayscale(1) contrast(1.5) brightness(0.7) hue-rotate(180deg);
+            animation: imageGlitch 10s steps(1) infinite;
+            border: 2px solid #600;
+            box-shadow: 
+                0 0 10px #ff0000,
+                inset 0 0 5px #ff0000;
+        }
+
+        @keyframes creepy {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            25% { transform: rotate(5deg) scale(1.1); }
+            50% { transform: rotate(-5deg) scale(0.9); }
+            75% { transform: rotate(5deg) scale(1.2); }
+        }
+
+        @keyframes imageGlitch {
+            0%, 100% { 
+                transform: none; 
+                filter: grayscale(1) contrast(1.5) brightness(0.7) hue-rotate(180deg);
+            }
+            98% { 
+                transform: none; 
+                filter: grayscale(1) contrast(1.5) brightness(0.7) hue-rotate(180deg);
+            }
+            99% { 
+                transform: translate(-2px, 3px) skew(-10deg);
+                filter: grayscale(1) brightness(2) contrast(3) hue-rotate(90deg) invert(1);
+            }
+        }
+
+        #lastMessage {
+            background: rgba(50, 0, 0, 0.5);
+            border: 1px solid #600;
+            color: #ff6666;
+            text-shadow: 0 0 5px #ff0000;
+        }
+
+        .home-link {
+            color: #ff0000;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid #600;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px #ff0000;
+            letter-spacing: 2px;
+        }
+
+        .home-link:hover {
+            background: #600;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #ff0000;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: monospace;
+            z-index: 1;
+            pointer-events: none;
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay loop muted playsinline
+          onerror="console.error('Video failed to load:', this.error);"
+          onloadeddata="console.log('Video loaded successfully')">
+        <source src="images/your-video.mp4" type="video/mp4">
+        <p>動画の読み込みに失敗しました</p>
+    </video>
+    <div class="watermark">Background video generated by KLING AI 1.6</div>
+    <div class="container">
+        <div class="teddy">
+            <img src="images/rainbow-character.jpg" alt="不気味な存在" class="creepy-image">
+        </div>
+        <h1>存在消失...</h1>
+        <div id="lastMessage" style="font-size: 0.9rem; margin: 1rem; padding: 1rem; background: rgba(255,255,255,0.5); border-radius: 10px;">
+        </div>
+        <p>このページは深淵に飲み込まれ、永遠の闇へと消え去りました...</p>
+        <p>現実世界にお戻りください。これは夢ではありません。</p>
+        <a href="index.html" class="home-link">現実と向き合う</a>
+    </div>
+    <script>
+        // 保存されたデータを表示
+        const lastData = localStorage.getItem('lastFormSubmission');
+        console.log('404ページで取得したデータ:', lastData);
+        if (lastData) {
+            const data = JSON.parse(lastData);
+            console.log('パース後のデータ:', data);
+            // メールアドレスは表示しない
+            const sanitizedName = data.名前.replace(/[<>]/g, ''); // 簡単なサニタイズ
+            const sanitizedMessage = data.メッセージ.replace(/[<>]/g, '');
+            document.getElementById('lastMessage').innerHTML = `
+                深淵からの最後の囁き:<br>
+                <span class="anonymous-name">匿名の存在</span>から...『${sanitizedMessage}』
+            `;
+        }
+    </script>
+</body>
+</html> 

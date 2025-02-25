@@ -1,0 +1,6 @@
+# 個人設定ファイルを無視
+config.js
+
+# その他の無視したいファイル
+.DS_Store
+node_modules/ 

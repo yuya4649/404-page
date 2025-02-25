@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">自己紹介</a></li>
+                <li><a href="#works">免許皆伝の秘儀</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 背景要素の追加 -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <section id="home">
+        <div class="hero">
+            <div class="profile-container">
+                <img src="images/rainbow-character.jpg" alt="ハルシネーション" class="profile-image">
+                <h1>ディストラ・"404"・ハルシネ</h1>
+            </div>
+        </div>
+        <div class="profession-container">
+            <p class="profession">異界の遊び人 / 夢見る冒険者</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>自己紹介</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>こんにちは...あるいは、こんばんわ...私はディストラ・"404"・ハルシネです。日々、夢と現実の境界線で遊んでいます。</p>
+                <p>特技は現実逃避とファンタジー創造です。</p>
+                <div class="skills">
+                    <h3>特殊技能</h3>
+                    <ul>
+                        <li>空中二重宙返り（寝ながら）</li>
+                        <li>バナナの皮で滑らない技</li>
+                        <li>雲の形で明日の天気を当てる</li>
+                        <li>猫の気持ちが分かる（たぶん）</li>
+                        <li>虹を食べても太らない</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works">
+        <h2>免許皆伝の秘儀</h2>
+        <div class="works-grid">
+            <div class="work-item">
+                <img src="images/project1.jpg" alt="これは">
+                <h3>第一の秘儀</h3>
+                <p>ビール瓶を頭に乗せたまま腕立て</p>
+            </div>
+            <div class="work-item">
+                <img src="images/project2.jpg" alt="身代わり">
+                <h3>第二の秘儀</h3>
+                <p>マグマの滝の中で心を乱さずに瞑想する</p>
+            </div>
+            <div class="work-item">
+                <img src="images/project3.jpg" alt="みたいなもの">
+                <h3>第三の秘儀</h3>
+                <p>心を燃やすすべの会得</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>お問い合わせ</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">あなたのキャラクター名</label>
+                <small style="display: block; color: #ff6666; margin-bottom: 0.5rem;">
+                    ※ 実名ではなく、物語の登場人物のような名前をお使いください
+                </small>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="message">メッセージ</label>
+                <small style="display: block; color: #ff6666; margin-bottom: 0.5rem;">
+                    ※ このメッセージは異空間に送信されます。個人情報や機密情報は入力しないでください。
+                    <br>
+                    ※ 返信はできませんが、あなたの想いは深淵に刻まれます。
+                </small>
+                <textarea id="message" required></textarea>
+            </div>
+            <button type="submit">送信</button>
+        </form>
+        <p class="warning-message">
+            ※ このメッセージは深淵の彼方へと消え去りますが...<br>
+            その痕跡は異空間に残るかもしれません...
+            <br>
+            <small style="opacity: 0.7;">
+                ※ 投稿内容は404空間に漂流する可能性があります。
+                <br>
+                ※ 実在の人物・団体とは一切関係ありません。
+            </small>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; $2*! ハルシネ. not found page.</p>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
